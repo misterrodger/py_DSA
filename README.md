@@ -1,3 +1,3 @@
 # py_DSA
 
-Some data structures and algorithms in 
+Some data structures and algorithms in Python
