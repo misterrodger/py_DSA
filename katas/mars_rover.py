@@ -25,20 +25,22 @@ def process_rovers(rovers: list[RoverWithCommands]):
     heading = rover['heading']
 
     for command in rover['commands']:
+      headings_index = headings.index(heading)
+
       if command == 'R':
-        heading = headings[(headings.index(heading) + 1) % 4]
+        heading = headings[(headings_index + 1) % 4]
 
       if command == 'L':
-        heading = headings[(headings.index(heading) + 3) % 4]
+        heading = headings[(headings_index + 3) % 4]
 
       if command == 'M':
         if heading == 'N':
           y += 1
-        if heading == 'E':
+        elif heading == 'E':
           x += 1
-        if heading == 'S':
+        elif heading == 'S':
           y -= 1
-        if heading == 'W':
+        elif heading == 'W':
           x -= 1
 
     result.append({'x': x, 'y': y, 'heading': heading})
